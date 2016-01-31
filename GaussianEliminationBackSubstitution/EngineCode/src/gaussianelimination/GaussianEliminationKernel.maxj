@@ -1,0 +1,30 @@
+package gaussianelimination;
+
+import com.maxeler.maxcompiler.v2.kernelcompiler.Kernel;
+import com.maxeler.maxcompiler.v2.kernelcompiler.KernelParameters;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.base.DFEVar;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.composite.DFEVector;
+import com.maxeler.maxcompiler.v2.kernelcompiler.types.composite.DFEVectorType;
+
+class GaussianEliminationKernel extends Kernel {
+	final int vectorSize = 2;
+
+	final DFEVectorType<DFEVar> vectorType =
+		new DFEVectorType<DFEVar>(dfeFloat(8, 24), vectorSize);
+
+	GaussianEliminationKernel(KernelParameters parameters) {
+		super(parameters);
+
+		// Input
+		DFEVector<DFEVar> inVector = io.input("inVector", vectorType);
+
+		DFEVector<DFEVar> outVector = vectorType.newInstance(this);;
+
+		for(int i = 0; i < vectorSize; i++)
+			outVector[i] <== inVector[vectorSize - i - 1];
+
+		// Output
+		io.output("outVector", outVector, vectorType);
+	}
+}
+

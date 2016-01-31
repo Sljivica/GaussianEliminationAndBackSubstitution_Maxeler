@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<maxCompilerManager version="2">
+<enginePart internalEngineSubproject="GaussianEliminationBackSubstitution_EngineCode" isSrcBin="false" isUseDefaultSelected="false" outputLocation="/GaussianEliminationBackSubstitution_EngineCode/bin" projectName="GaussianEliminationBackSubstitution"/>
+<cpuPart internalCpuSubproject="GaussianEliminationBackSubstitution_CPUCode"/>
+<watchedFiles/>
+</maxCompilerManager>
